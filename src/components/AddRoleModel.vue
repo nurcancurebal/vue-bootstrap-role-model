@@ -43,7 +43,11 @@
         class="mt-2"
       ></b-form-tags>
 
-      <b-button @click="sendRoleModel()" block variant="outline-primary"
+      <b-button
+        block
+        @click="sendRoleModel()"
+        class="mt-2 w-100"
+        variant="outline-primary"
         >Primary</b-button
       >
     </b-form>
