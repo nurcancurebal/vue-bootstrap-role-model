@@ -12,11 +12,11 @@
 </template>
 
 <script>
-import AddRoleModel from "./components/AddRoleModel";
+import globalComponents from "./components/globalComponents";
 
 export default {
   components: {
-    AddRoleModel,
+    ...globalComponents,
   },
 };
 </script>
