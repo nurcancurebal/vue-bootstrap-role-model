@@ -58,6 +58,8 @@
 export default {
   data() {
     return {
+      imageSource:
+        "https://us.123rf.com/450wm/kakigori/kakigori1808/kakigori180800024/107433935-cute-funny-man-dad-and-kid-son-wearing-black-mustache-mask.jpg?ver=6",
       modelName: "",
       modelJob: "",
       modelNationality: "",
@@ -65,8 +67,6 @@ export default {
       modelAbout: "",
       modelPic: "",
       tags: [],
-      imageSource:
-        "https://us.123rf.com/450wm/kakigori/kakigori1808/kakigori180800024/107433935-cute-funny-man-dad-and-kid-son-wearing-black-mustache-mask.jpg?ver=6",
       mainProps: {
         width: 150,
         height: 150,
@@ -77,12 +77,16 @@ export default {
 
   methods: {
     sendRoleModel() {
-      console.log(this.modelName);
-      console.log(this.modelJob);
-      console.log(this.modelNationality);
-      console.log(this.modelBirthday);
-      console.log(this.modelAbout);
-      console.log(this.tags);
+      const a = [
+        this.modelName,
+        this.modelJob,
+        this.modelNationality,
+        this.modelPic,
+        this.modelBirthday,
+        this.modelAbout,
+        this.tags,
+      ];
+      this.$emit("fromAddRoleModel", a);
     },
   },
 };

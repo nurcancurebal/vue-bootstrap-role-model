@@ -1,7 +1,7 @@
 <template>
   <b-card
-    title="Card Title"
-    img-src="https://picsum.photos/600/300/?image=25"
+    :title="modelName"
+    :img-src="modelPic"
     img-alt="Image"
     img-top
     tag="article"
@@ -9,9 +9,18 @@
     class="mb-2"
   >
     <b-card-text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
+      {{ modelJob }} - {{ modelNationality }} - {{ modelBirthday }}
     </b-card-text>
+
+    <b-card-text>
+      {{ modelAbout }}
+    </b-card-text>
+
+    <div class="tagsClass">
+      <b-card-text class="tagsText" v-for="(i, index) in tags" :key="index">
+        {{ i }}
+      </b-card-text>
+    </div>
 
     <b-button href="#" variant="primary">Go somewhere</b-button>
   </b-card>
@@ -21,7 +30,44 @@
 export default {
   props: {},
   data() {
-    return {};
+    return {
+      modelName: "try one",
+      modelJob: "Developer",
+      modelNationality: "Canada",
+      modelBirthday: "27/03/95",
+      modelAbout: "try one",
+      modelPic: "https://picsum.photos/600/300/?image=25",
+      tags: [
+        "one",
+        "two",
+        "one",
+        "two",
+        "one",
+        "two",
+        "one",
+        "two",
+        "one",
+        "two",
+      ],
+    };
   },
 };
 </script>
+
+
+<style>
+.tagsClass {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.tagsText {
+  background-color: aquamarine;
+  margin: 6px 4px;
+  font-size: 18px;
+  font-family: Cambria, sans-serif;
+  padding: 2px 3px;
+  box-shadow: 0 0 2px mediumblue;
+}
+</style>
