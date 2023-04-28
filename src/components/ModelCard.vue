@@ -18,7 +18,7 @@
 
     <div class="tagsClass">
       <b-card-text class="tagsText" v-for="(i, index) in tags" :key="index">
-        {{ i }}
+        #{{ i }}
       </b-card-text>
     </div>
 
@@ -28,28 +28,19 @@
 
 <script>
 export default {
-  props: {},
+  props: {
+    // this.modelName, this.modelJob, this.modelNationality,  this.modelPic, this.modelBirthday,  this.modelAbout,this.tags
+
+    modelName: String,
+    modelJob: String,
+    modelNationality: String,
+    modelPic: String,
+    modelBirthday: String,
+    modelAbout: String,
+    tags: Array,
+  },
   data() {
-    return {
-      modelName: "try one",
-      modelJob: "Developer",
-      modelNationality: "Canada",
-      modelBirthday: "27/03/95",
-      modelAbout: "try one",
-      modelPic: "https://picsum.photos/600/300/?image=25",
-      tags: [
-        "one",
-        "two",
-        "one",
-        "two",
-        "one",
-        "two",
-        "one",
-        "two",
-        "one",
-        "two",
-      ],
-    };
+    return {};
   },
 };
 </script>
@@ -58,16 +49,21 @@ export default {
 <style>
 .tagsClass {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
+  margin-bottom: 15px;
 }
 
 .tagsText {
-  background-color: aquamarine;
-  margin: 6px 4px;
+  background-color: #d5ede8;
+  margin: 4px;
   font-size: 18px;
-  font-family: Cambria, sans-serif;
-  padding: 2px 3px;
-  box-shadow: 0 0 2px mediumblue;
+  font-family: calibri, sans-serif;
+  padding: 2px 10px;
+  box-shadow: 0 0 3px #0e9acd;
+  border-radius: 18px;
+}
+
+.card-text:last-child {
+  margin-bottom: 4px !important;
 }
 </style>

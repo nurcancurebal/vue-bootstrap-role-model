@@ -81,9 +81,9 @@ export default {
         this.modelName,
         this.modelJob,
         this.modelNationality,
-        this.modelPic,
         this.modelBirthday,
         this.modelAbout,
+        this.modelPic,
         this.tags,
       ];
       this.$emit("fromAddRoleModel", a);

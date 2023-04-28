@@ -6,7 +6,17 @@
           <AddRoleModel @fromAddRoleModel="updateCard($event)" />
         </b-col>
         <b-col sm="8">
-          <ModelCard />
+          <ModelCard
+            v-for="(item, index) in card"
+            :key="index"
+            :modelName="item[0]"
+            :modelJob="item[1]"
+            :modelNationality="item[2]"
+            :modelBirthday="item[3]"
+            :modelAbout="item[4]"
+            :modelPic="item[5]"
+            :tags="item[6]"
+          />
         </b-col>
       </b-row>
     </b-container>
