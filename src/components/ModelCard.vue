@@ -22,15 +22,18 @@
       </b-card-text>
     </div>
 
-    <b-button href="#" variant="primary">Go somewhere</b-button>
+    <div class="bottomButtons">
+      <b-button @click="updateEmitIndex()" variant="outline-success"
+        >Update</b-button
+      >
+      <b-button variant="outline-danger">Delete</b-button>
+    </div>
   </b-card>
 </template>
 
 <script>
 export default {
   props: {
-    // this.modelName, this.modelJob, this.modelNationality,  this.modelPic, this.modelBirthday,  this.modelAbout,this.tags
-
     modelName: String,
     modelJob: String,
     modelNationality: String,
@@ -38,9 +41,15 @@ export default {
     modelBirthday: String,
     modelAbout: String,
     tags: Array,
+    index: Number,
   },
   data() {
     return {};
+  },
+  methods: {
+    updateEmitIndex() {
+      this.$emit("updateEmitIndex", this.index);
+    },
   },
 };
 </script>
@@ -51,6 +60,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 15px;
+  justify-content: center;
 }
 
 .tagsText {
@@ -65,5 +75,11 @@ export default {
 
 .card-text:last-child {
   margin-bottom: 4px !important;
+}
+
+.bottomButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 </style>

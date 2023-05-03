@@ -16,6 +16,18 @@
             :modelAbout="item[4]"
             :modelPic="item[5]"
             :tags="item[6]"
+            @updateEmitIndex="activeIndex($event)"
+          />
+
+          <UpdateModelCard
+            :modelName="card[activeNumber][0]"
+            :modelJob="card[activeNumber][1]"
+            :modelNationality="card[activeNumber][2]"
+            :modelBirthday="card[activeNumber][3]"
+            :modelAbout="card[activeNumber][4]"
+            :modelPic="card[activeNumber][5]"
+            :tags="card[activeNumber][6]"
+            v-if="showModel"
           />
         </b-col>
       </b-row>
@@ -34,6 +46,8 @@ export default {
   data() {
     return {
       card: [],
+      showModel: false,
+      activeNumber: -1,
     };
   },
 
@@ -41,6 +55,11 @@ export default {
     updateCard(e) {
       this.card.push(e);
       console.log(this.card);
+    },
+    activeIndex(e) {
+      this.showModel = true;
+      this.activeNumber = e;
+      console.log(e);
     },
   },
 };

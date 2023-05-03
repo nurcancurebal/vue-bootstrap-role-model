@@ -1,7 +1,6 @@
 <template>
-  <div class="addRoleModel mt-3">
-    <b-img :src="imageSource" v-bind="mainProps" rounded></b-img>
-    <b-form>
+  <div>
+    <b-modal ref="my-modal" hide-footer title="Using Component Methods">
       <b-form-input
         class="mt-2"
         v-model="modelName"
@@ -46,60 +45,49 @@
         class="mt-2"
       ></b-form-tags>
 
-      <b-button
-        block
-        @click="sendRoleModel()"
-        class="mt-2 w-100"
-        variant="outline-primary"
-        >Primary</b-button
+      <b-button class="mt-3" variant="outline-danger" block @click="hideModal"
+        >Close Me</b-button
       >
-    </b-form>
+
+      <b-button
+        class="mt-2"
+        variant="outline-warning"
+        block
+        @click="toggleModal"
+        >Toggle Me</b-button
+      >
+    </b-modal>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      imageSource:
-        "https://us.123rf.com/450wm/kakigori/kakigori1808/kakigori180800024/107433935-cute-funny-man-dad-and-kid-son-wearing-black-mustache-mask.jpg?ver=6",
-      modelName: "",
-      modelJob: "",
-      modelNationality: "",
-      modelBirthday: "",
-      modelAbout: "",
-      modelPic: "",
-      tags: [],
-      mainProps: {
-        width: 150,
-        height: 150,
-        class: "m1",
-      },
-    };
+  props: {
+    modelName: String,
+    modelJob: String,
+    modelNationality: String,
+    modelPic: String,
+    modelBirthday: String,
+    modelAbout: String,
+    tags: Array,
+    index: Number,
   },
-
   methods: {
-    sendRoleModel() {
-      const a = [
-        this.modelName,
-        this.modelJob,
-        this.modelNationality,
-        this.modelBirthday,
-        this.modelAbout,
-        this.modelPic,
-        this.tags,
-      ];
-      this.$emit("fromAddRoleModel", a);
+    showModal() {
+      this.$refs["my-modal"].show();
+    },
+    hideModal() {
+      this.$refs["my-modal"].hide();
+    },
+    toggleModal() {
+      // We pass the ID of the button that we want to return focus to
+      // when the modal has hidden
+      this.$refs["my-modal"].toggle("#toggle-btn");
+      this.$emit("closeModel");
+    },
+    mounted() {
+      this.showModal();
     },
   },
 };
 </script>
-
-
-<style>
-.addRoleModel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-</style>
