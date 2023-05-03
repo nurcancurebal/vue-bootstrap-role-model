@@ -2,10 +2,10 @@
   <div>
     <b-container class="bv-example-row">
       <b-row>
-        <b-col sm="4">
+        <b-col sm="4" class="mb-5">
           <AddRoleModel @fromAddRoleModel="updateCard($event)" />
         </b-col>
-        <b-col sm="8">
+        <b-col sm="8" class="cardContainer">
           <ModelCard
             v-for="(item, index) in card"
             :key="index"
@@ -17,6 +17,7 @@
             :modelPic="item[5]"
             :tags="item[6]"
             @updateEmitIndex="activeIndex($event)"
+            @deleteModelOpen="deleteModelOpen($event)"
           />
 
           <UpdateModelCard
@@ -28,6 +29,16 @@
             :modelPic="card[activeNumber][5]"
             :tags="card[activeNumber][6]"
             v-if="showModel"
+            @closeModel="updateOkey($event)"
+            @hideUpdateModel="hideUpdateModel()"
+          />
+
+          <DeleteModelCard
+            :modelName="card[activeNumber][0]"
+            v-if="showModelDelete"
+            :index="activeNumber"
+            @deleteModel="deleteModel()"
+            @deleteModelHide="deleteModelHide()"
           />
         </b-col>
       </b-row>
@@ -47,6 +58,7 @@ export default {
     return {
       card: [],
       showModel: false,
+      showModelDelete: false,
       activeNumber: -1,
     };
   },
@@ -61,9 +73,36 @@ export default {
       this.activeNumber = e;
       console.log(e);
     },
+    updateOkey(e) {
+      this.card.splice(this.activeNumber, 1, e);
+      this.showModel = false;
+      this.activeNumber = -1;
+    },
+    deleteModelOpen(e) {
+      this.showModelDelete = true;
+      this.activeNumber = e;
+    },
+    deleteModel() {
+      this.card.splice(this.activeNumber, 1);
+      this.showModelDelete = false;
+      this.activeNumber = -1;
+    },
+    deleteModelHide() {
+      this.showModelDelete = false;
+    },
+    hideUpdateModel() {
+      this.showModel = false;
+    },
   },
 };
 </script>
 
 <style>
+.cardContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 20px;
+}
 </style>

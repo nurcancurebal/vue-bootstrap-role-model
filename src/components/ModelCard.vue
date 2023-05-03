@@ -26,7 +26,9 @@
       <b-button @click="updateEmitIndex()" variant="outline-success"
         >Update</b-button
       >
-      <b-button variant="outline-danger">Delete</b-button>
+      <b-button @click="deleteModelOpen()" variant="outline-danger"
+        >Delete</b-button
+      >
     </div>
   </b-card>
 </template>
@@ -49,6 +51,9 @@ export default {
   methods: {
     updateEmitIndex() {
       this.$emit("updateEmitIndex", this.index);
+    },
+    deleteModelOpen() {
+      this.$emit("deleteModelOpen", this.index);
     },
   },
 };

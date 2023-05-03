@@ -1,6 +1,11 @@
 <template>
   <div>
-    <b-modal ref="my-modal" hide-footer title="Using Component Methods">
+    <b-modal
+      @hidden="hideModel()"
+      ref="my-modal"
+      hide-footer
+      title="Using Component Methods"
+    >
       <b-form-input
         class="mt-2"
         v-model="modelName"
@@ -45,16 +50,12 @@
         class="mt-2"
       ></b-form-tags>
 
-      <b-button class="mt-3" variant="outline-danger" block @click="hideModal"
-        >Close Me</b-button
-      >
-
       <b-button
         class="mt-2"
         variant="outline-warning"
         block
         @click="toggleModal"
-        >Toggle Me</b-button
+        >Update Role Model</b-button
       >
     </b-modal>
   </div>
@@ -78,12 +79,22 @@ export default {
     },
     hideModal() {
       this.$refs["my-modal"].hide();
+      this.$emit("hideUpdateModel");
     },
     toggleModal() {
       // We pass the ID of the button that we want to return focus to
       // when the modal has hidden
+      const a = [
+        this.modelName,
+        this.modelJob,
+        this.modelNationality,
+        this.modelBirthday,
+        this.modelAbout,
+        this.modelPic,
+        this.tags,
+      ];
       this.$refs["my-modal"].toggle("#toggle-btn");
-      this.$emit("closeModel");
+      this.$emit("closeModel", a);
     },
     mounted() {
       this.showModal();
