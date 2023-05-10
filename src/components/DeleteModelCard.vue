@@ -1,10 +1,10 @@
 <template>
   <div>
     <b-modal
-      @hidden="hideModel()"
+      @hidden="hideModal()"
       ref="my-modal"
       hide-footer
-      :title="modelName + '--Role Model Card'"
+      title="Using Component Methods"
     >
       <b-button
         class="mt-2"
@@ -20,6 +20,7 @@
 <script>
 export default {
   props: {
+    //[this.modelName,this.modelJob,this.modelNationality,this.modelBirthDay,this.modelAbout,this.modelPic,this.tags];
     index: Number,
     modelName: String,
   },
@@ -34,21 +35,12 @@ export default {
     toggleModal() {
       // We pass the ID of the button that we want to return focus to
       // when the modal has hidden
-      const a = [
-        this.modelName,
-        this.modelJob,
-        this.modelNationality,
-        this.modelBirthday,
-        this.modelAbout,
-        this.modelPic,
-        this.tags,
-      ];
       this.$refs["my-modal"].toggle("#toggle-btn");
       this.$emit("deleteModel");
     },
-    mounted() {
-      this.showModal();
-    },
+  },
+  mounted() {
+    this.showModal();
   },
 };
 </script>

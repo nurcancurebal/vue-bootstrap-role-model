@@ -9,19 +9,16 @@
     class="mb-2"
   >
     <b-card-text>
-      {{ modelJob }} - {{ modelNationality }} - {{ modelBirthday }}
+      {{ modelJob }} - {{ modelNationality }} -{{ modelBirthDay }}
     </b-card-text>
-
     <b-card-text>
       {{ modelAbout }}
     </b-card-text>
-
-    <div class="tagsClass">
-      <b-card-text class="tagsText" v-for="(i, index) in tags" :key="index">
+    <div class="tagsClass mb-5">
+      <b-card-text class="tagsText m-5" v-for="(i, index) in tags" :key="index">
         #{{ i }}
       </b-card-text>
     </div>
-
     <div class="bottomButtons">
       <b-button @click="updateEmitIndex()" variant="outline-success"
         >Update</b-button
@@ -36,12 +33,13 @@
 <script>
 export default {
   props: {
+    //[this.modelName,this.modelJob,this.modelNationality,this.modelBirthDay,this.modelAbout,this.modelPic,this.tags];
     modelName: String,
     modelJob: String,
     modelNationality: String,
-    modelPic: String,
-    modelBirthday: String,
+    modelBirthDay: String,
     modelAbout: String,
+    modelPic: String,
     tags: Array,
     index: Number,
   },
@@ -58,30 +56,23 @@ export default {
   },
 };
 </script>
-
-
 <style>
 .tagsClass {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 15px;
   justify-content: center;
 }
-
 .tagsText {
   background-color: #d5ede8;
-  margin: 4px;
   font-size: 18px;
-  font-family: calibri, sans-serif;
-  padding: 2px 10px;
+  font-family: Calibri, sans-serif;
+  padding: 2px 10px 2px 10px;
   box-shadow: 0 0 3px #0e9acd;
   border-radius: 18px;
 }
-
 .card-text:last-child {
-  margin-bottom: 4px !important;
+  margin-bottom: 4px;
 }
-
 .bottomButtons {
   display: flex;
   flex-direction: row;
