@@ -10,47 +10,44 @@
         class="mt-2"
         v-model="modelName"
         placeholder="What is your role model name"
-      ></b-form-input>
+      />
       <b-form-input
         class="mt-2"
         v-model="modelJob"
         placeholder="What is his job"
-      ></b-form-input>
+      />
       <b-form-input
         class="mt-2"
         v-model="modelNationality"
         placeholder="What is his nationality"
-      ></b-form-input>
+      />
       <b-form-input
         class="mt-2"
         v-model="modelPic"
         placeholder="Add his picture link"
-      ></b-form-input>
+      />
       <label class="mt-3">Choose his birthday</label>
       <b-form-datepicker
         id="example-datepicker"
         v-model="modelBirthDay"
         class="mb-2"
-      ></b-form-datepicker>
+      />
       <b-form-textarea
         class="mt-2"
         v-model="modelAbout"
         placeholder="Notes about him ..."
         rows="3"
         max-rows="6"
-      ></b-form-textarea>
-      <b-form-tags
-        input-id="tags-basic"
-        v-model="tags"
-        class="mb-2 mt-2"
-      ></b-form-tags>
+      />
+      <b-form-tags input-id="tags-basic" v-model="tags" class="mb-2 mt-2" />
       <b-button
         class="mt-2"
         variant="outline-warning"
         block
         @click="toggleModal"
-        >Update Role Model</b-button
       >
+        Update Role Model
+      </b-button>
     </b-modal>
   </div>
 </template>

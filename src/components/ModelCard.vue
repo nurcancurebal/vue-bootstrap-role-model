@@ -20,12 +20,12 @@
       </b-card-text>
     </div>
     <div class="bottomButtons">
-      <b-button @click="updateEmitIndex()" variant="outline-success"
-        >Update</b-button
-      >
-      <b-button @click="deleteModelOpen()" variant="outline-danger"
-        >Delete</b-button
-      >
+      <b-button @click="updateEmitIndex()" variant="outline-success">
+        Update
+      </b-button>
+      <b-button @click="deleteModelOpen()" variant="outline-danger">
+        Delete
+      </b-button>
     </div>
   </b-card>
 </template>

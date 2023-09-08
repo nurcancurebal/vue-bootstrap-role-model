@@ -11,8 +11,9 @@
         variant="outline-warning"
         block
         @click="toggleModal"
-        >Delete Role Model</b-button
       >
+        Delete Role Model
+      </b-button>
     </b-modal>
   </div>
 </template>
